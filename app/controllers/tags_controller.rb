@@ -1,0 +1,6 @@
+class TagsController < ApplicationController
+
+
+
+
+end
