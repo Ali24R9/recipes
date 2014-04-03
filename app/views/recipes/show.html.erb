@@ -2,7 +2,14 @@
 
 <p class="content"><%= @recipe.content %></p>
 
-<p><button class="edit btn btn-primary"> Edit</button>
+<p>
+  <button class="edit btn btn-primary">Edit</button>
+  <a class="btn btn-danger"
+    href="/recipes/<%= @recipe.slug %>"
+    data-method="delete"
+    rel="nofollow">Delete</a>
+</p>
+
 
 <div class="edit_form">
   <h3>Edit Recipe</h3>
@@ -15,3 +22,5 @@
     <input name="params[slug]" type="hidden" value="recipe[name]">
     <button class="btn btn-success"> Update</button>
 </form>
+
+
