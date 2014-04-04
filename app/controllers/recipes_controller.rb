@@ -2,12 +2,16 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @tags = Tag.all
     render('/recipes/index.html.erb')
   end
 
   def create
     params[:recipe][:slug] = params[:recipe][:name].parameterize
     @recipe = Recipe.create(params[:recipe])
+
+    type = Tag.find(params[:tag][:id])
+    @recipe.tags << type
 
     if @recipe.save
       redirect_to("/recipes")
